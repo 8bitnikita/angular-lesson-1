@@ -7,5 +7,5 @@ import { IPost } from '../app.component';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent {
-  @Input() public post: IPost = { title: '', description: '' };
+  @Input({ required: true }) public post!: IPost;
 }
