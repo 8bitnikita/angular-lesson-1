@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 
+export interface IPost {
+  title: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-lesson-1';
+  public posts: IPost[] = [];
+
+  public addPost(post: IPost): void {
+    this.posts.push(post);
+  }
 }
