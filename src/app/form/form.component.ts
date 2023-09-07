@@ -10,7 +10,7 @@ export class FormComponent {
   public title: string = '';
   public description: string = '';
 
-  @Output() public postEmiter: EventEmitter<IPost> = new EventEmitter();
+  @Output() public postEmiter = new EventEmitter<IPost>();
 
   public addPost(): void {
     if (this.title.trim() && this.description.trim()) {
