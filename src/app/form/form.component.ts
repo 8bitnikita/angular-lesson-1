@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { IPost } from '../app.component';
 
 @Component({
@@ -9,8 +16,11 @@ import { IPost } from '../app.component';
 export class FormComponent {
   public title: string = '';
   public description: string = '';
+  public isFocused: boolean = false;
 
   @Output() public postEmiter = new EventEmitter<IPost>();
+  @ViewChild('titleInput') public inputRef!: ElementRef;
+  @ViewChild('descriptionInput') public inputDescRef!: ElementRef;
 
   public addPost(): void {
     if (this.title.trim() && this.description.trim()) {
@@ -22,5 +32,15 @@ export class FormComponent {
 
     this.title = '';
     this.description = '';
+  }
+
+  public focusInput(): void {
+    if (!this.isFocused) {
+      this.inputRef.nativeElement.focus();
+      this.isFocused = true;
+    } else {
+      this.inputDescRef.nativeElement.focus();
+      this.isFocused = false;
+    }
   }
 }
