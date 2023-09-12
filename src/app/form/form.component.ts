@@ -2,7 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  OnInit,
+  AfterViewInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -13,7 +13,7 @@ import { IPost } from '../app.component';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent {
+export class FormComponent implements AfterViewInit {
   public title: string = '';
   public description: string = '';
   public isFocused: boolean = false;
@@ -43,5 +43,9 @@ export class FormComponent {
       this.inputDescRef.nativeElement.focus();
       this.isFocused = false;
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.focusInput();
   }
 }
