@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 export interface IPost {
+  id: number;
   title: string;
   description: string;
 }
@@ -15,5 +16,9 @@ export class AppComponent {
 
   public addPost(post: IPost): void {
     this.posts.push(post);
+  }
+
+  public deletePost(id: number): void {
+    this.posts = this.posts.filter((post) => post.id !== id);
   }
 }

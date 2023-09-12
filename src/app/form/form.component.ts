@@ -25,6 +25,7 @@ export class FormComponent {
   public addPost(): void {
     if (this.title.trim() && this.description.trim()) {
       this.postEmiter.emit({
+        id: Date.now(),
         title: this.title,
         description: this.description,
       });

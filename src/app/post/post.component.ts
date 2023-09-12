@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IPost } from '../app.component';
 
 @Component({
@@ -8,4 +8,9 @@ import { IPost } from '../app.component';
 })
 export class PostComponent {
   @Input({ required: true }) public post!: IPost;
+  @Output() public onRemovePost = new EventEmitter<number>();
+
+  public removePost(): void {
+    this.onRemovePost.emit(this.post.id);
+  }
 }

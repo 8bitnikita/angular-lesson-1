@@ -2,5 +2,9 @@
   <h1 class="title">Angular lesson 1</h1>
   <app-form (postEmiter)="addPost($event)"></app-form>
   <hr />
-  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  <app-post
+    *ngFor="let post of posts"
+    (onRemovePost)="deletePost($event)"
+    [post]="post"
+  ></app-post>
 </div>

@@ -1,4 +1,6 @@
 .post {
+  display: flex;
+  justify-content: space-between;
   border: 1px dashed black;
   padding: 10px 15px;
   margin: 15px 0 20px 0;
@@ -8,6 +10,10 @@
   }
 
   p {
+    font-size: 18px;
+  }
+
+  button {
     font-size: 18px;
   }
 }
